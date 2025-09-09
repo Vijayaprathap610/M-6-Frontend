@@ -12,7 +12,7 @@ function Login() {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post('http://localhost:3001/api/auth/login', { email, password });
+            const res = await axios.post('https://m-6-backend-flight.onrender.com/api/auth/login', { email, password });
             setAuth({ token: res.data.token, role: res.data.role });
             navigate(res.data.role === 'admin' ? '/manage' : '/flights');
         } catch (err) {

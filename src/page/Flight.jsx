@@ -6,7 +6,7 @@ function Flight() {
     const [flights, setFlights] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:3001/api/flight/getflights')
+        axios.get('https://m-6-backend-flight.onrender.com/api/flight/getflights')
             .then(res => setFlights(res.data))
             .catch(() => alert('Failed to fetch flights'));
     }, []);

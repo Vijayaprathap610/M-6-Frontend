@@ -18,7 +18,7 @@ function BookingForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:3001/api/bookings/postbookings', form, {
+            await axios.post('https://m-6-backend-flight.onrender.com/api/bookings/postbookings', form, {
                 headers: { Authorization: `Bearer ${auth.token}` }
             });
             alert('Booking submitted');

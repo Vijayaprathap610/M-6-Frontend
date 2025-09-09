@@ -19,7 +19,7 @@ function ManageFlight() {
 
     // Fetch flights
     useEffect(() => {
-        axios.get('http://localhost:3001/api/flight/getflights')
+        axios.get('https://m-6-backend-flight.onrender.com/api/flight/getflights')
             .then(res => setFlights(res.data))
             .catch(() => alert('Failed to fetch flights'));
     }, []);
@@ -34,7 +34,7 @@ function ManageFlight() {
         const config = { headers: { Authorization: `Bearer ${auth.token}` } };
 
         if (editId) {
-            axios.put(`http://localhost:3001/api/flight/putflights/${editId}`, formData, config)
+            axios.put(`https://m-6-backend-flight.onrender.com/api/flight/putflights/${editId}`, formData, config)
                 .then(() => {
                     alert('Flight updated');
                     setEditId(null);
@@ -42,7 +42,7 @@ function ManageFlight() {
                 })
                 .catch(() => alert('Update failed'));
         } else {
-            axios.post('http://localhost:3001/api/flight/postflights', formData, config)
+            axios.post('https://m-6-backend-flight.onrender.com/api/flight/postflights', formData, config)
                 .then(() => {
                     alert('Flight added');
                     refreshFlights();
@@ -62,7 +62,7 @@ function ManageFlight() {
     // Delete flight
     const handleDelete = id => {
         const config = { headers: { Authorization: `Bearer ${auth.token}` } };
-        axios.delete(`http://localhost:3001/api/flight/removeflights/${id}`, config)
+        axios.delete(`https://m-6-backend-flight.onrender.com/api/flight/removeflights/${id}`, config)
             .then(() => {
                 alert('Flight deleted');
                 refreshFlights();
@@ -84,7 +84,7 @@ function ManageFlight() {
 
     // Refresh flight list
     const refreshFlights = () => {
-        axios.get('http://localhost:3001/api/flight/getflights')
+        axios.get('https://m-6-backend-flight.onrender.com/api/flight/getflights')
             .then(res => setFlights(res.data));
     };
 

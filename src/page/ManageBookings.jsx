@@ -7,13 +7,13 @@ function ManageBookings() {
     const { auth } = useContext(AuthContext);
 
     useEffect(() => {
-        axios.get('http://localhost:3001/api/bookings/managebookings', {
+        axios.get('https://m-6-backend-flight.onrender.com/api/bookings/managebookings', {
             headers: { Authorization: `Bearer ${auth.token}` }
         }).then(res => setBookings(res.data));
     }, [auth]);
 
     const updateStatus = async (_id, status) => {
-        await axios.put(`http://localhost:3001/api/bookings/managebookings/${_id}/status`, { status }, {
+        await axios.put(`https://m-6-backend-flight.onrender.com/api/bookings/managebookings/${_id}/status`, { status }, {
             headers: { Authorization: `Bearer ${auth.token}` }
         });
         setBookings(bookings.map(b => b._id === _id ? { ...b, status } : b));
