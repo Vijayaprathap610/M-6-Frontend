@@ -1,0 +1,20 @@
+.hero-section {
+    height: 100vh;
+    background-image: url("https://static.vecteezy.com/system/resources/previews/028/576/287/large_2x/airplane-in-the-sky-over-new-york-city-3d-rendering-airplane-in-flight-at-twilight-with-blurred-cityscape-ai-generated-free-photo.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: -1;
+}
